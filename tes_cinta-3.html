@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffd6eb">
+<title>Tes Cinta 💗</title>
+<style>
+:root{--pink:#ff4f9a;--pink2:#ff80bb;--purple:#a94de8;--ink:#813c78}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);overflow-x:hidden;background:radial-gradient(circle at 20% 15%,#fff7fc 0 8%,transparent 35%),linear-gradient(145deg,#ffd9ed,#f5d9ff 55%,#ffe7f3)}
+body:before,body:after{content:"";position:fixed;width:240px;height:240px;border-radius:50%;filter:blur(45px);opacity:.5;pointer-events:none;z-index:0}
+body:before{background:#ff9fcf;top:-70px;left:-90px}body:after{background:#d7a4ff;right:-100px;bottom:-60px}
+main{position:relative;z-index:1;width:min(100% - 28px,460px);margin:0 auto;padding:32px 0 28px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.top-heart{font-size:76px;line-height:1;filter:drop-shadow(0 8px 8px #ed5b9d45);animation:beat 1.25s infinite}
+h1{font-family:Georgia,serif;font-style:italic;font-size:clamp(42px,12vw,60px);margin:10px 0 4px;color:#ed438e;text-shadow:0 3px 0 #fff,0 8px 18px #e95d9d30}
+.subtitle{margin:0 0 25px;font-weight:600;color:#8b4d91}
+.panel{background:#ffffffa8;border:1px solid #fff9;border-radius:26px;padding:22px 18px;box-shadow:0 12px 35px #c95b9d1c;backdrop-filter:blur(8px)}
+.field{width:100%;border:1.5px solid #f4b3d7;background:#fffafc;border-radius:18px;padding:16px 17px;font:inherit;color:#7f4679;outline:none;margin:7px 0;box-shadow:0 4px 10px #d958a012}
+.field:focus{border-color:#e84b9b;box-shadow:0 0 0 4px #f77cb52b}
+button{border:0;font:inherit;font-weight:800;cursor:pointer;transition:transform .15s,filter .15s}
+button:active{transform:scale(.97)}
+.primary{width:100%;margin-top:13px;padding:15px 20px;border-radius:999px;color:white;background:linear-gradient(100deg,#ff4e9a,#bc49e9);box-shadow:0 7px 0 #d84c9b35,0 12px 25px #d74f9b30;font-size:18px}
+.primary:hover,.secondary:hover{filter:brightness(1.04)}
+.note{font-size:12px;opacity:.75;margin:17px 0 0}
+.hidden{display:none!important}
+#analysis{padding:28px 18px}
+.orbit{height:190px;display:grid;place-items:center;position:relative;overflow:hidden}
+.big-heart{font-size:105px;line-height:1;filter:drop-shadow(0 10px 12px #ed408b50);animation:beat .75s infinite;position:relative;z-index:2}
+.orbit:before,.orbit:after{content:"";position:absolute;width:145px;height:55px;border:3px solid #fff;border-radius:50%;transform:rotate(-20deg);animation:orbit 2s linear infinite}
+.orbit:after{transform:rotate(35deg);animation-direction:reverse;width:170px;height:70px}
+#loadingTitle{font-family:Georgia,serif;font-style:italic;font-size:29px;color:#e84391;margin:7px 0}
+.progress{height:12px;border-radius:99px;background:#f8cde4;margin:19px 7px 4px;overflow:hidden;border:2px solid white}
+.progress span{display:block;width:0;height:100%;border-radius:99px;background:linear-gradient(90deg,#ff4f9a,#b84de6);transition:width .12s linear}
+.result-heart{width:190px;height:170px;margin:2px auto 10px;position:relative;display:grid;place-items:center}
+.result-heart .heart{font-size:145px;line-height:1;filter:drop-shadow(0 9px 9px #e9438b48);animation:beat 1.1s infinite}
+#score{position:absolute;color:white;font-size:34px;font-weight:900;text-shadow:0 2px 5px #a52a69;top:62px;left:0;right:0}
+#couple{font-size:20px;font-weight:800;margin:0 0 6px;overflow-wrap:anywhere}
+#label{display:inline-block;background:linear-gradient(100deg,#ff4e9a,#b84de6);color:white;padding:9px 24px;border-radius:999px;font-weight:900;box-shadow:0 5px 12px #dc5caa30}
+#message{line-height:1.6;margin:16px 0 20px;background:#fff9;border:1px solid #fff;border-radius:18px;padding:14px}
+.secondary{background:#fff4fb;border:1px solid #f1add1;color:#d53c8c;padding:13px 20px;border-radius:999px;width:100%;font-weight:800}
+.float-heart{position:fixed;bottom:-35px;z-index:5;pointer-events:none;animation:floatUp linear forwards;filter:drop-shadow(0 3px 4px #ee4c9b30)}
+.spark{position:fixed;z-index:0;color:#fff;font-size:18px;animation:twinkle 2s ease-in-out infinite alternate;pointer-events:none}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+@keyframes floatUp{0%{transform:translate3d(0,0,0) rotate(0deg) scale(.65);opacity:0}12%{opacity:.95}85%{opacity:.8}100%{transform:translate3d(var(--drift),-115vh,0) rotate(35deg) scale(1.2);opacity:0}}
+@keyframes orbit{to{transform:rotate(340deg)}}
+@keyframes twinkle{from{opacity:.35;transform:scale(.8)}to{opacity:1;transform:scale(1.2)}}
+@media(min-width:600px){main{padding-top:38px;padding-bottom:38px}.panel{padding:26px 24px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+  <section id="home">
+    <div class="top-heart" aria-hidden="true">💖</div>
+    <h1>Tes Cinta</h1>
+    <p class="subtitle">Seberapa besar cinta kalian? 💞</p>
+    <div class="panel">
+      <form id="loveForm">
+        <input class="field" id="name1" maxlength="30" placeholder="♡ Nama pertama" autocomplete="given-name" required>
+        <input class="field" id="name2" maxlength="30" placeholder="♡ Nama kedua" autocomplete="off" required>
+        <button class="primary" type="submit">♡ &nbsp; Analisis &nbsp; ♡</button>
+      </form>
+      <p class="note">✨ Tes seru-seruan untuk kamu dan pasangan ✨</p>
+    </div>
+  </section>
+
+  <section id="analysis" class="panel hidden" aria-live="polite">
+    <div class="orbit"><div class="big-heart">💗</div></div>
+    <h2 id="loadingTitle">Menganalisis...</h2>
+    <p id="loadingText">Sedang menghitung seberapa besar cinta kalian 💕</p>
+    <div class="progress"><span id="progressBar"></span></div>
+    <p class="note">Hati-hati cinta sedang diproses! 💘</p>
+  </section>
+
+  <section id="result" class="panel hidden" aria-live="polite">
+    <div class="result-heart"><div class="heart">❤️</div><div id="score">73%</div></div>
+    <p id="couple"></p>
+    <div id="label">Cukup Cocok! 💞</div>
+    <p id="message">Setiap hubungan punya cerita indahnya sendiri. 💗</p>
+    <button class="secondary" id="refresh" type="button">⟳ &nbsp; Coba Lagi</button>
+    <p class="note">Hasil dibuat secara acak untuk hiburan, bukan ukuran kecocokan sebenarnya.</p>
+  </section>
+</main>
+<script>
+const form = document.getElementById('loveForm');
+const home = document.getElementById('home');
+const analysis = document.getElementById('analysis');
+const result = document.getElementById('result');
+const progressBar = document.getElementById('progressBar');
+let heartTimer = null;
+
+function floatingHeart(){
+  const heart = document.createElement('span');
+  heart.className = 'float-heart';
+  const symbols = ['💗','💖','💕','💘','💞','♡'];
+  heart.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+  heart.style.left = (Math.random()*100) + 'vw';
+  heart.style.fontSize = (16 + Math.random()*25) + 'px';
+  heart.style.animationDuration = (2.8 + Math.random()*2.7) + 's';
+  heart.style.setProperty('--drift', (Math.random()*150-75)+'px');
+  document.body.appendChild(heart);
+  heart.addEventListener('animationend',()=>heart.remove(),{once:true});
+}
+function startHearts(){
+  for(let i=0;i<18;i++) setTimeout(floatingHeart,i*90);
+  heartTimer=setInterval(floatingHeart,230);
+}
+function stopHearts(){
+  if(heartTimer){clearInterval(heartTimer);heartTimer=null;}
+}
+function showOnly(section){
+  [home,analysis,result].forEach(el=>el.classList.add('hidden'));
+  section.classList.remove('hidden');
+}
+function resultMessage(score){
+  if(score<=20) return ['Masih malu-malu 💕','Cinta bisa tumbuh pelan-pelan. Nikmati proses saling mengenal!'];
+  if(score<=40) return ['Mulai Ada Rasa 💗','Siapa tahu kedekatan kecil bisa menjadi cerita yang manis.'];
+  if(score<=60) return ['Lumayan Serasi 💞','Terus saling mengenal, menghargai, dan berbagi cerita indah.'];
+  if(score<=80) return ['Cukup Cocok! 💘','Kalian punya peluang menciptakan banyak momen manis bersama.'];
+  return ['Serasi Banget! 💖','Wah, hasil tesnya tinggi! Semoga selalu saling menghargai dan bahagia.'];
+}
+form.addEventListener('submit', async (event)=>{
+  event.preventDefault();
+  const name1=document.getElementById('name1').value.trim();
+  const name2=document.getElementById('name2').value.trim();
+  if(!name1||!name2) return;
+  document.getElementById('couple').textContent=name1+' + '+name2;
+  progressBar.style.width='0%';
+  showOnly(analysis);
+  startHearts();
+  const duration=3000, start=performance.now();
+  await new Promise(resolve=>{
+    function tick(now){
+      const p=Math.min((now-start)/duration,1);
+      progressBar.style.width=(p*100)+'%';
+      if(p<1) requestAnimationFrame(tick); else resolve();
+    }
+    requestAnimationFrame(tick);
+  });
+  stopHearts();
+  // Skor acak baru setiap kali tombol Analisis ditekan, dari 0 sampai 100.
+  const score=Math.floor(Math.random()*101);
+  document.getElementById('score').textContent=score+'%';
+  const [label,message]=resultMessage(score);
+  document.getElementById('label').textContent=label;
+  document.getElementById('message').textContent=message;
+  showOnly(result);
+  for(let i=0;i<15;i++) setTimeout(floatingHeart,i*100);
+});
+document.getElementById('refresh').addEventListener('click',()=>{
+  stopHearts();
+  form.reset();
+  showOnly(home);
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('name1').focus({preventScroll:true});
+});
+// Bintang kecil dekoratif
+for(let i=0;i<12;i++){
+  const star=document.createElement('span');
+  star.className='spark';star.textContent='✦';
+  star.style.left=(Math.random()*100)+'vw';
+  star.style.top=(Math.random()*100)+'vh';
+  star.style.animationDelay=(Math.random()*2)+'s';
+  document.body.appendChild(star);
+}
+</script>
+</body>
+</html>
